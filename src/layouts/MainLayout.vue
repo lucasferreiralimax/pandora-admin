@@ -54,13 +54,26 @@ const linksData = [
     title: 'Home',
     caption: 'Pandora Admin',
     icon: 'home',
-    link: 'https://github.com/lucasferreiralimax/pandora-admin'
+    link: '/'
+  },
+  {
+    title: 'Login',
+    caption: 'Page Login',
+    icon: 'login',
+    link: 'login'
+  },
+  {
+    title: '404',
+    caption: 'Page 404',
+    icon: 'not_interested',
+    link: '404'
   },
   {
     title: 'Github',
     caption: 'github.com/\nlucasferreiralimax/pandora-admin',
     icon: 'code',
-    link: 'https://github.com/lucasferreiralimax/pandora-admin'
+    link: 'https://github.com/lucasferreiralimax/pandora-admin',
+    target: true
   }
 ]
 
