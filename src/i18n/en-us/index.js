@@ -3,5 +3,11 @@
 
 export default {
   failed: 'Action failed',
-  success: 'Action was successful'
+  success: 'Action was successful',
+
+  login: {
+    user: 'Username',
+    pass: 'Password',
+    enter: 'Enter'
+  }
 }
