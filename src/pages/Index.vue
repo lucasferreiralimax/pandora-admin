@@ -1,8 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <q-parallax
-      src="../assets/mar.jpg"
-    >
+    <q-parallax src="../assets/mar.jpg">
       <h1 class="text-center text-green-14">Pandora Admin</h1>
     </q-parallax>
     <q-parallax>
@@ -28,9 +26,7 @@
         </div>
       </template>
     </q-parallax>
-    <q-parallax
-      src="../assets/ice.jpg"
-    >
+    <q-parallax src="../assets/ice.jpg">
       <h1 class="text-green-14">Vue.js</h1>
     </q-parallax>
   </q-page>
