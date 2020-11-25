@@ -57,6 +57,12 @@ const linksData = [
     link: '/'
   },
   {
+    title: 'Dashboard',
+    caption: 'Page Dashboard',
+    icon: 'dashboard',
+    link: 'dashboard'
+  },
+  {
     title: 'Login',
     caption: 'Page Login',
     icon: 'login',
