@@ -25,6 +25,21 @@
         @click="login"
       />
     </q-card>
+    <q-dialog v-model="alertMsg">
+      <q-card style="width: 300px">
+        <q-card-section>
+          <div class="text-h6">Login failed</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          Tente <br>
+          username: admin <br>
+          password: 123456
+        </q-card-section>
+        <q-card-actions align="right" class="bg-white text-teal">
+          <q-btn flat label="OK" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </section>
 </template>
 
@@ -34,7 +49,8 @@ export default {
   data () {
     return {
       user: '',
-      pass: ''
+      pass: '',
+      alertMsg: false
     }
   },
   methods: {
@@ -43,8 +59,7 @@ export default {
       if (this.user === 'admin' && this.pass === '123456') {
         this.$router.push('/dashboard')
       } else {
-        alert('Login errado')
-        alert('Tente user: "admin" pass: "123456"')
+        this.alertMsg = true
       }
     }
   }
