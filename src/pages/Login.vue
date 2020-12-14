@@ -9,7 +9,7 @@
           <q-icon name="person" color="black" />
         </template>
       </q-input>
-      <q-input outlined color="black" bg-color="white" v-model="pass" :label="$t('login.pass')">
+      <q-input outlined color="black" bg-color="white" v-model="pass" :label="$t('login.pass')" type="password">
         <template v-slot:prepend>
           <q-icon name="lock" color="black" />
         </template>
@@ -17,11 +17,12 @@
       <q-btn
         class="q-mt-lg full-width"
         color="primary"
+        no-caps
         unelevated
         size="lg"
-        to="/"
+        :disabled="!user || !pass"
         :label="$t('login.enter')"
-        no-caps
+        @click="login"
       />
     </q-card>
   </section>
@@ -34,6 +35,17 @@ export default {
     return {
       user: '',
       pass: ''
+    }
+  },
+  methods: {
+    login () {
+      // fake example
+      if (this.user === 'admin' && this.pass === '123456') {
+        this.$router.push('/dashboard')
+      } else {
+        alert('Login errado')
+        alert('Tente user: "admin" pass: "123456"')
+      }
     }
   }
 }
