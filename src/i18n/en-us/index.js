@@ -8,6 +8,9 @@ export default {
   login: {
     user: 'Username',
     pass: 'Password',
-    enter: 'Enter'
+    enter: 'Enter',
+    send: 'Send',
+    remember: 'Do not you remember pass?',
+    back: 'Back to login'
   }
 }
