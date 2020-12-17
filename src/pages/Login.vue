@@ -1,6 +1,6 @@
 <template>
   <section class="login fullscreen text-white text-center q-pa-md flex flex-center">
-    <q-card class="q-pa-lg">
+    <q-card class="q-pa-lg" @keyup.enter.native="login">
       <h4 class="q-mt-none q-mb-lg text-black">
         Login
       </h4>
@@ -9,20 +9,30 @@
           <q-icon name="person" color="black" />
         </template>
       </q-input>
-      <q-input outlined color="black" bg-color="white" v-model="pass" :label="$t('login.pass')" type="password">
+      <q-input class="q-mb-md" outlined color="black" bg-color="white" v-model="pass" :label="$t('login.pass')" type="password" v-if="!remember">
         <template v-slot:prepend>
           <q-icon name="lock" color="black" />
         </template>
       </q-input>
       <q-btn
-        class="q-mt-lg full-width"
+        class="full-width"
         color="primary"
         no-caps
         unelevated
         size="lg"
-        :disabled="!user || !pass"
-        :label="$t('login.enter')"
+        :disabled="remember ? !user : !user || !pass"
+        :label="remember ? $t('login.send') : $t('login.enter')"
         @click="login"
+      />
+      <q-btn
+        class="q-mt-md full-width"
+        outline
+        color="grey"
+        no-caps
+        unelevated
+        size="md"
+        :label="remember ? $t('login.back') : $t('login.remember')"
+        @click="remember = !remember"
       />
     </q-card>
     <q-dialog v-model="alertMsg">
@@ -40,6 +50,19 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="alertMsgRemember">
+      <q-card style="width: 300px">
+        <q-card-section>
+          <div class="text-h6">Remember Send</div>
+        </q-card-section>
+        <q-card-section class="q-pt-none">
+          See you email
+        </q-card-section>
+        <q-card-actions align="right" class="bg-white text-teal">
+          <q-btn flat label="OK" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </section>
 </template>
 
@@ -50,16 +73,22 @@ export default {
     return {
       user: '',
       pass: '',
-      alertMsg: false
+      remember: false,
+      alertMsg: false,
+      alertMsgRemember: false
     }
   },
   methods: {
     login () {
       // fake example
-      if (this.user === 'admin' && this.pass === '123456') {
-        this.$router.push('/dashboard')
+      if (this.remember) {
+        this.alertMsgRemember = true
       } else {
-        this.alertMsg = true
+        if (this.user === 'admin' && this.pass === '123456') {
+          this.$router.push('/dashboard')
+        } else {
+          this.alertMsg = true
+        }
       }
     }
   }
