@@ -36,6 +36,7 @@
           :key="link.title"
           v-bind="link"
         />
+        <q-toggle v-model="darkmode" :label="$t('darkmode')" />
       </q-list>
     </q-drawer>
 
@@ -88,7 +89,13 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
-      essentialLinks: linksData
+      essentialLinks: linksData,
+      darkmode: false
+    }
+  },
+  watch: {
+    darkmode () {
+      this.$q.dark.toggle()
     }
   }
 }

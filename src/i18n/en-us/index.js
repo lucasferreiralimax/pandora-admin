@@ -4,6 +4,7 @@
 export default {
   failed: 'Action failed',
   success: 'Action was successful',
+  darkmode: 'Dark mode',
 
   login: {
     user: 'Username',
