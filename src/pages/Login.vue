@@ -1,21 +1,21 @@
 <template>
-  <section class="login fullscreen text-white text-center q-pa-md flex flex-center">
+  <section class="login fullscreen text-center q-pa-md flex flex-center">
     <q-card class="q-pa-lg" @keyup.enter.native="login">
-      <h4 class="q-mt-none q-mb-lg text-black">
+      <h4 class="q-mt-none q-mb-lg">
         Login
       </h4>
-      <q-input class="q-mb-md" outlined color="black" bg-color="white" v-model="user" :label="$t('login.user')">
+      <q-input class="q-mb-md" outlined v-model="user" :label="$t('login.user')">
         <template v-slot:prepend>
           <q-icon name="person" color="black" />
         </template>
       </q-input>
-      <q-input class="q-mb-md" outlined color="black" bg-color="white" v-model="pass" :label="$t('login.pass')" type="password" v-if="!remember">
+      <q-input class="q-mb-md" outlined v-model="pass" :label="$t('login.pass')" type="password" v-if="!remember">
         <template v-slot:prepend>
           <q-icon name="lock" color="black" />
         </template>
       </q-input>
       <q-btn
-        class="full-width"
+        class="full-width text-white"
         color="primary"
         no-caps
         unelevated
@@ -45,7 +45,7 @@
           username: admin <br>
           password: 123456
         </q-card-section>
-        <q-card-actions align="right" class="bg-white text-teal">
+        <q-card-actions align="right" class="text-teal">
           <q-btn flat label="OK" v-close-popup />
         </q-card-actions>
       </q-card>
@@ -58,7 +58,7 @@
         <q-card-section class="q-pt-none">
           See you email
         </q-card-section>
-        <q-card-actions align="right" class="bg-white text-teal">
+        <q-card-actions align="right" class="text-teal">
           <q-btn flat label="OK" v-close-popup />
         </q-card-actions>
       </q-card>
