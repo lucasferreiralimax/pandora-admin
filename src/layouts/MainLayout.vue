@@ -10,12 +10,32 @@
           aria-label="Menu"
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
-
-        <q-toolbar-title>
-          Pandora Admin
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toolbar-title>Pandora Admin</q-toolbar-title>
+        <q-space />
+        <q-btn-dropdown stretch flat>
+           <template v-slot:label>
+            <div class="row items-center no-wrap">
+              <q-avatar size="32px" class="q-mr-sm">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              </q-avatar>
+              <div class="text-center">Lucas</div>
+            </div>
+          </template>
+          <div class="row no-wrap q-pa-md">
+            <div class="column">
+              <div class="text-h6 q-mb-md">Settings</div>
+              <q-toggle v-model="darkmode" :label="$t('darkmode')" />
+            </div>
+            <q-separator vertical inset class="q-mx-lg" />
+            <div class="column items-center">
+              <q-avatar size="72px">
+                <img src="https://cdn.quasar.dev/img/boy-avatar.png">
+              </q-avatar>
+              <div class="text-subtitle1 q-mt-md q-mb-xs">Lucas</div>
+              <q-btn color="primary" label="Logout" push size="sm" v-close-popup />
+            </div>
+          </div>
+        </q-btn-dropdown>
       </q-toolbar>
     </q-header>
 
@@ -24,20 +44,15 @@
       show-if-above
       bordered
     >
-      <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Menu
-        </q-item-label>
+      <q-list class="q-pb-xl">
+        <q-item-label header class="text-grey-8">Menu</q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
           v-bind="link"
         />
-        <q-toggle v-model="darkmode" :label="$t('darkmode')" />
       </q-list>
+      <div class="text-center absolute-bottom q-pa-sm bg-primary text-white">Quasar v{{ $q.version }}</div>
     </q-drawer>
 
     <q-page-container>
