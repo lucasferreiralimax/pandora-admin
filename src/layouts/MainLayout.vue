@@ -108,9 +108,19 @@ export default {
       darkmode: false
     }
   },
+  created () {
+    const darkStorage = localStorage.getItem('dark')
+
+    if (darkStorage) {
+      this.darkmode = JSON.parse(darkStorage)
+    } else {
+      localStorage.setItem('dark', this.$q.dark.isActive)
+    }
+  },
   watch: {
-    darkmode () {
-      this.$q.dark.toggle()
+    darkmode (val) {
+      localStorage.setItem('dark', val)
+      this.$q.dark.set(val)
     }
   }
 }
