@@ -85,6 +85,7 @@ export default {
         this.alertMsgRemember = true
       } else {
         if (this.user === 'admin' && this.pass === '123456') {
+          this.$store.commit('auth/authLogin', true)
           this.$router.push('/dashboard')
         } else {
           this.alertMsg = true

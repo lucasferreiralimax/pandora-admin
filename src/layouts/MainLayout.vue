@@ -32,7 +32,7 @@
                 <img src="https://cdn.quasar.dev/img/boy-avatar.png">
               </q-avatar>
               <div class="text-subtitle1 q-mt-md q-mb-xs">Lucas</div>
-              <q-btn color="primary" label="Logout" push size="sm" v-close-popup />
+              <q-btn color="primary" label="Logout" push size="sm" v-close-popup @click="logout" />
             </div>
           </div>
         </q-btn-dropdown>
@@ -117,6 +117,12 @@ export default {
       localStorage.setItem('dark', this.$q.dark.isActive)
     }
   },
+  methods: {
+    logout () {
+      this.$store.commit('auth/authLogin', false)
+      this.$router.push('/login')
+    }
+  },
   watch: {
     darkmode (val) {
       localStorage.setItem('dark', val)
@@ -125,3 +131,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.q-toggle[aria-label='Dark mode'] {
+  user-select: none;
+}
+</style>
