@@ -1,7 +1,7 @@
 <template>
   <q-page class="flex flex-center">
     <q-parallax src="../assets/mar.jpg">
-      <h1 class="text-center text-green-14">Pandora Admin</h1>
+      <h1 class="text-center text-green-14 duplicity-text">Pandora Admin</h1>
     </q-parallax>
     <q-parallax>
       <template v-slot:media>
@@ -27,7 +27,7 @@
       </template>
     </q-parallax>
     <q-parallax src="../assets/ice.jpg">
-      <h1 class="text-green-14">Vue.js</h1>
+      <h1 class="text-green-14 duplicity-text">Vue.js</h1>
     </q-parallax>
   </q-page>
 </template>
@@ -37,3 +37,17 @@ export default {
   name: 'PageIndex'
 }
 </script>
+
+<style lang="scss" scoped>
+.duplicity-text {
+  text-shadow: 0 2px #fff,
+               0 -2px #fff,
+               2px 0 #fff,
+               -2px 0 #fff,
+               2px 2px #fff,
+               2px -2px #fff,
+               -2px 2px #fff,
+               -2px -2px #fff,
+               0 0 20px #000;
+}
+</style>
