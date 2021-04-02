@@ -78,6 +78,12 @@ const linksData = [
     link: 'dashboard'
   },
   {
+    title: 'Checkout',
+    caption: 'Page Checkout',
+    icon: 'shopping_cart',
+    link: 'checkout'
+  },
+  {
     title: 'Login',
     caption: 'Page Login',
     icon: 'login',

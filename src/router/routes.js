@@ -5,7 +5,8 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
-      { path: '/dashboard', component: () => import('pages/Dashboard.vue') }
+      { path: '/dashboard', component: () => import('pages/Dashboard.vue') },
+      { path: '/checkout', component: () => import('pages/Checkout.vue') }
     ],
     meta: { requireAuth: true }
   },
