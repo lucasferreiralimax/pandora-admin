@@ -80,32 +80,32 @@
 
 <script>
 export default {
-  name: "Login",
-  data() {
+  name: 'Login',
+  data () {
     return {
-      user: "",
-      pass: "",
+      user: '',
+      pass: '',
       remember: false,
       alertMsg: false,
       alertMsgRemember: false
-    };
+    }
   },
   methods: {
-    login() {
+    login () {
       // fake example
       if (this.remember) {
-        this.alertMsgRemember = true;
+        this.alertMsgRemember = true
       } else {
-        if (this.user === "admin" && this.pass === "123456") {
-          this.$store.commit("auth/authLogin", true);
-          this.$router.push("/dashboard");
+        if (this.user === 'admin' && this.pass === '123456') {
+          this.$store.commit('auth/authLogin', true)
+          this.$router.push('/dashboard')
         } else {
-          this.alertMsg = true;
+          this.alertMsg = true
         }
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

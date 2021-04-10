@@ -86,12 +86,12 @@
 
 <script>
 export default {
-  name: "PageCheckout",
-  data() {
+  name: 'PageCheckout',
+  data () {
     return {
       step: 1,
       persistent: false
-    };
+    }
   }
-};
+}
 </script>

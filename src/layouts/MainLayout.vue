@@ -67,84 +67,84 @@
 </template>
 
 <script>
-import EssentialLink from "components/EssentialLink.vue";
+import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: "Home",
-    caption: "Pandora Admin",
-    icon: "home",
-    link: "/"
+    title: 'Home',
+    caption: 'Pandora Admin',
+    icon: 'home',
+    link: '/'
   },
   {
-    title: "Dashboard",
-    caption: "Page Dashboard",
-    icon: "dashboard",
-    link: "dashboard"
+    title: 'Dashboard',
+    caption: 'Page Dashboard',
+    icon: 'dashboard',
+    link: 'dashboard'
   },
   {
-    title: "Checkout",
-    caption: "Page Checkout",
-    icon: "shopping_cart",
-    link: "checkout"
+    title: 'Checkout',
+    caption: 'Page Checkout',
+    icon: 'shopping_cart',
+    link: 'checkout'
   },
   {
-    title: "Login",
-    caption: "Page Login",
-    icon: "login",
-    link: "login"
+    title: 'Login',
+    caption: 'Page Login',
+    icon: 'login',
+    link: 'login'
   },
   {
-    title: "404",
-    caption: "Page 404",
-    icon: "not_interested",
-    link: "404"
+    title: '404',
+    caption: 'Page 404',
+    icon: 'not_interested',
+    link: '404'
   },
   {
-    title: "Github",
-    caption: "github.com/\nlucasferreiralimax/pandora-admin",
-    icon: "code",
-    link: "https://github.com/lucasferreiralimax/pandora-admin",
+    title: 'Github',
+    caption: 'github.com/\nlucasferreiralimax/pandora-admin',
+    icon: 'code',
+    link: 'https://github.com/lucasferreiralimax/pandora-admin',
     target: true
   }
-];
+]
 
 export default {
-  name: "MainLayout",
+  name: 'MainLayout',
   components: { EssentialLink },
-  data() {
+  data () {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData,
       darkmode: false
-    };
+    }
   },
-  created() {
-    const darkStorage = localStorage.getItem("dark");
+  created () {
+    const darkStorage = localStorage.getItem('dark')
 
     if (darkStorage) {
-      this.darkmode = JSON.parse(darkStorage);
+      this.darkmode = JSON.parse(darkStorage)
     } else {
-      localStorage.setItem("dark", this.$q.dark.isActive);
+      localStorage.setItem('dark', this.$q.dark.isActive)
     }
   },
   methods: {
-    logout() {
-      this.$store.commit("auth/authLogin", false);
-      this.$router.push("/login");
+    logout () {
+      this.$store.commit('auth/authLogin', false)
+      this.$router.push('/login')
     }
   },
   watch: {
-    darkmode(val) {
-      localStorage.setItem("dark", val);
-      this.$q.dark.set(val);
+    darkmode (val) {
+      localStorage.setItem('dark', val)
+      this.$q.dark.set(val)
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
 .q-toggle[aria-label="Dark mode"] {
-  user-select: none;
+  user-select: none
 }
 </style>
