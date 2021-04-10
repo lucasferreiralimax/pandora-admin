@@ -4,12 +4,24 @@
       <h4 class="q-mt-none q-mb-lg">
         Login
       </h4>
-      <q-input class="q-mb-md" outlined v-model="user" :label="$t('login.user')">
+      <q-input
+        class="q-mb-md"
+        outlined
+        v-model="user"
+        :label="$t('login.user')"
+      >
         <template v-slot:prepend>
           <q-icon name="person" color="black" />
         </template>
       </q-input>
-      <q-input class="q-mb-md" outlined v-model="pass" :label="$t('login.pass')" type="password" v-if="!remember">
+      <q-input
+        class="q-mb-md"
+        outlined
+        v-model="pass"
+        :label="$t('login.pass')"
+        type="password"
+        v-if="!remember"
+      >
         <template v-slot:prepend>
           <q-icon name="lock" color="black" />
         </template>
@@ -41,8 +53,8 @@
           <div class="text-h6">Login failed</div>
         </q-card-section>
         <q-card-section class="q-pt-none">
-          Tente <br>
-          username: admin <br>
+          Tente <br />
+          username: admin <br />
           password: 123456
         </q-card-section>
         <q-card-actions align="right" class="text-teal">
@@ -68,43 +80,47 @@
 
 <script>
 export default {
-  name: 'Login',
-  data () {
+  name: "Login",
+  data() {
     return {
-      user: '',
-      pass: '',
+      user: "",
+      pass: "",
       remember: false,
       alertMsg: false,
       alertMsgRemember: false
-    }
+    };
   },
   methods: {
-    login () {
+    login() {
       // fake example
       if (this.remember) {
-        this.alertMsgRemember = true
+        this.alertMsgRemember = true;
       } else {
-        if (this.user === 'admin' && this.pass === '123456') {
-          this.$store.commit('auth/authLogin', true)
-          this.$router.push('/dashboard')
+        if (this.user === "admin" && this.pass === "123456") {
+          this.$store.commit("auth/authLogin", true);
+          this.$router.push("/dashboard");
         } else {
-          this.alertMsg = true
+          this.alertMsg = true;
         }
       }
     }
   }
-}
+};
 </script>
 
 <style lang="scss">
-  .login.fullscreen {
-    animation: 20s bg_anime infinite alternate;
-    background: url('../assets/mar.jpg') repeat-x;
-    background-size: cover;
-  }
+.login.fullscreen {
+  animation: 20s bg_anime infinite alternate;
+  background: url("../assets/mar.jpg") repeat-x;
+  background-size: cover;
+}
 
-  @keyframes bg_anime {
-    0%   { background-position-x: 0;    }
-    100% { background-position-x: 100%; }
+@keyframes bg_anime {
+  0% {
+    background-position-x: 0;
   }
+  100% {
+    background-position-x: 100%;
+  }
+}
 </style>
