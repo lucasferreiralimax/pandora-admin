@@ -98,7 +98,13 @@ export default {
 
 <style lang="scss">
   .login.fullscreen {
-    background: url('../assets/mar.jpg') no-repeat;
+    animation: 20s bg_anime infinite alternate;
+    background: url('../assets/mar.jpg') repeat-x;
     background-size: cover;
+  }
+
+  @keyframes bg_anime {
+    0%   { background-position-x: 0;    }
+    100% { background-position-x: 100%; }
   }
 </style>
