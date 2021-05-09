@@ -11,7 +11,7 @@
         :label="$t('login.user')"
       >
         <template v-slot:prepend>
-          <q-icon name="person" color="black" />
+          <q-icon name="person" :color="colorTheme" />
         </template>
       </q-input>
       <q-input
@@ -23,7 +23,7 @@
         v-if="!remember"
       >
         <template v-slot:prepend>
-          <q-icon name="lock" color="black" />
+          <q-icon name="lock" :color="colorTheme" />
         </template>
       </q-input>
       <q-btn
@@ -81,6 +81,11 @@
 <script>
 export default {
   name: 'Login',
+  computed: {
+    colorTheme () {
+      return this.$q.dark.isActive ? 'white' : 'black'
+    }
+  },
   data () {
     return {
       user: '',
@@ -109,9 +114,12 @@ export default {
 </script>
 
 <style lang="scss">
+.body--dark .login.fullscreen {
+  background-blend-mode: luminosity;
+}
 .login.fullscreen {
   animation: 20s bg_anime infinite alternate;
-  background: url("../assets/mar.jpg") repeat-x;
+  background: #000 url("../assets/mar.jpg") repeat-x;
   background-size: cover;
 }
 
